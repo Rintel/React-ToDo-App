@@ -10,6 +10,7 @@ cache:
 install: true
 
 script:
+  - npm install
   - npm run test
   - npm run build
 
