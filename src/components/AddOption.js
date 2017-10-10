@@ -1,15 +1,10 @@
-import React from "React";
+import React from "react";
 
 export default class AddOptions extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      error: undefined
-    };
-    this.onFormSubmit = this.onFormSubmit.bind(this);
+  state = {
+    error: undefined
   };
-
-  onFormSubmit(e) {
+  onFormSubmit = (e) => {
     e.preventDefault();
 
     const option = e.target.elements.option.value.trim();
@@ -24,10 +19,14 @@ export default class AddOptions extends React.Component {
   render() {
     return (
       <div>
-        {this.state.error && <p>{this.state.error}</p>}
-        <form onSubmit={this.onFormSubmit}>
-          <input type="text" name="option" />
-          <button>Add Option</button>
+        {this.state.error && <p className="add-option-error">{this.state.error}</p>}
+        <form className="add-option" onSubmit={this.onFormSubmit}>
+          <input 
+            className="add-option__input" 
+            type="text" 
+            name="option" 
+          />
+          <button className="button">Add Option</button>
         </form>
       </div>
     );
